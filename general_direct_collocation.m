@@ -3,7 +3,16 @@ function result = general_direct_collocation(duration, targetangle, Ncolloc, old
 % Jeremy Wong 2016-11-29
 % implements via Hargraves 1987 Spline collocation constraint.
 % Thereby replaces transcription method of van den Bogert.
-% Allows black-box uses of optimization. 
+% Allows black-box uses of optimization by replacing 'getstated' with arbitrary
+% ode function returning ddt(state) from state. 
+% There are 3 solution types:
+% 1 Newton (as per the pdf 'DirectCollocation_simple.pdf')
+% (github.com/cato469/DC)
+% 2 IPOPT
+% 3 fmincon
+% Fmincon has been used to check the derivatives of the constraint
+% equations. So there is a long derivativecheck at the beginning.
+% This example:
 % Finds optimal motion of a torque-driven pendulum.  Task is to move from one
 % static posture to another in a given time.
 % Contributing Author: Ton van den Bogert <a.vandenbogert@csuohio.edu>
