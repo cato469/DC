@@ -1,21 +1,19 @@
 function result = general_direct_collocation(duration, targetangle, Ncolloc, oldresult)
 % function result = general_direct_collocation(duration, targetangle, Ncolloc, oldresult)
-% implements via Hargraves 1987
+% Jeremy Wong 2016-11-29
+% implements via Hargraves 1987 Spline collocation constraint.
+% Thereby replaces transcription method of van den Bogert.
+% Allows black-box uses of optimization. 
 % Finds optimal motion of a torque-driven pendulum.  Task is to move from one
 % static posture to another in a given time.
-% Method: direct collocation with 3-point discretization formula for acceleration.
-
-% Author: Ton van den Bogert <a.vandenbogert@csuohio.edu>
-
+% Contributing Author: Ton van den Bogert <a.vandenbogert@csuohio.edu>
 % This work is licensed under a Creative Commons Attribution 3.0 Unported License.
 % http://creativecommons.org/licenses/by/3.0/deed.en_US
-
 % Inputs:
 %	duration		duration of the movement (s)
 %	targetangle		target angle (deg)
 %	Ncolloc				number of collocation nodes to use
 % 	oldresult		(optional) initial guess
-
 % Notes:
 % 1. This code may be useful as a template for solving other optimal control problems, such
 %    as cart-pole upswing.
